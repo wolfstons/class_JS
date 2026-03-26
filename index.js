@@ -1,29 +1,22 @@
-/*jelenítsd meg a kutyát*/
 
-//megjelenít megtodus
-//kartya metodus
-import Kutya from "./Kutya.js"
+import { KUTYALISTA } from "./adat.js"
+import Kutyak from "./Kutyak.js"
 
-const kutya={
-    kep:"kep/kutya.jpg",
-    nev:"morzsi"
-}
-const kutya2={
-    kep:"kep/kutya2.jpg",
-    nev:"bodri"
-}
+
 
 const szuloELEM=document.querySelector(".tarolo")
+const KedvencElem=document.querySelector(".kedvenc")
 
-const dog= new Kutya(kutya,szuloELEM)/*példányosítom az osztályt */
-//példány neve dog
-/*
-console.log(dog)
-console.log(dog.szuloElem)
-console.log(dog.getobj())/*csak igy lehet olvasni mert privát az adattag */
+new Kutyak(KUTYALISTA,szuloELEM)
 
-const bodri=new Kutya(kutya2,szuloELEM)
 
-/*a kuyta legyen oltotott */
+const KEDVENCLISTA=[]
 
-bodri.setobj(true)
+window.addEventListener("kevenc", function (event){
+    console.log(event.detail)
+    KEDVENCLISTA.push(KUTYALISTA[event.detail])
+    console.log(KEDVENCLISTA)
+   new Kutyak(KEDVENCLISTA,KedvencElem)
+
+
+})

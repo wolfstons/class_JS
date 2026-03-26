@@ -1,0 +1,20 @@
+/**végig megy a listán és példányosítja az osztályt */
+
+import Kutya from "./Kutya.js"
+
+export default class Kutyak{
+    #lista=[]
+    constructor(lista,szuloElem){
+        this.#lista=lista
+        this.szuloElem=szuloElem
+        this.szuloElem.innerHTML=""
+        this.megjelenit()
+    }
+    megjelenit(){
+        this.#lista.forEach(
+            (elem,index)=> {
+                new Kutya(elem,index,this.szuloElem)
+            
+        });
+    }
+}
